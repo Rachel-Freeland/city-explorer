@@ -2,7 +2,7 @@
 
 ## Netlify Badge and Link
 
-[![Netlify Status](<https://api.netlify.com/api/v1/badges/6977d6af-4889-474a-a114-b1bd276c789c/deploy-status)](https://app.netlify.com/sites/gracious-mcnulty-c0919f/deploys>)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6977d6af-4889-474a-a114-b1bd276c789c/deploy-status)](https://app.netlify.com/sites/city-explorer-hijinx/deploys)
 
 [City Explorer](<https://city-explorer-hijinx.netlify.app/>)
 
