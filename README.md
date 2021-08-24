@@ -1,5 +1,11 @@
 # City Explorer
 
+## Netlify Badge and Link
+
+[![Netlify Status](<https://api.netlify.com/api/v1/badges/6977d6af-4889-474a-a114-b1bd276c789c/deploy-status)](https://app.netlify.com/sites/gracious-mcnulty-c0919f/deploys>)
+
+[City Explorer](<https://city-explorer-hijinx.netlify.app/>)
+
 **Author**: Rachel Freeland
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
