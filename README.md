@@ -31,7 +31,7 @@ On Monday August 23, 2021: Sarah Creager
 
 ## Web Request Response Cycle
 
-- ![Lab_6.jpg]('../images/lab6_wb.jpg')
+- ![Lab_6.jpg](images/lab6_wb.jpg)
 
 ## Time Estimates
 
