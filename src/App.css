@@ -2,6 +2,10 @@ html {
   padding: 1rem;
   background-color: slategray;
 }
+#alert {
+  text-align: center;
+  color: black;
+}
 
 body div {
   background-color: rgb(182, 202, 223);

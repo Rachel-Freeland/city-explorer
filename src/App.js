@@ -1,4 +1,5 @@
 import React from 'react';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Figure from 'react-bootstrap/Figure';
@@ -16,7 +17,9 @@ class App extends React.Component {
       lat: '',
       lon: '',
       display_name: '',
-      map: ''
+      map: '',
+      errorMessage: '',
+      showAlert: false
     };
   }
 
@@ -29,7 +32,7 @@ class App extends React.Component {
 
   handleClick = async (e) => {
       e.preventDefault();
-
+      try{
       const locationAPI = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API}&q=${this.state.searchQuery}&format=json`;
       const locationResponse = await axios.get(locationAPI);
       this.setState({
@@ -40,15 +43,24 @@ class App extends React.Component {
 
       const mapAPI =`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API}&lat=${this.state.lat}&lon=${this.state.lon}&center=${this.state.lat},${this.state.lon}&zoom=10&theme=streets`;
       const mapResponse = await axios.get(mapAPI);
-      console.log(mapResponse.config.url);
       this.setState({
         map: mapResponse.config.url
-      })
+      });
+    } catch(err) {
+      this.setState({
+        errorMessage: err.message,
+        showAlert: true
+      });
+    }
   }
 
   render() {
     return(
       <Container>
+        {this.state.errorMessage &&
+        <Alert id="alert" variant="danger" showAlert={this.state.showAlert}>
+          Error: Unable to GeoCode!
+        </Alert>}
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail" onChange={this.handleChange}>
           <Form.Label>City Search</Form.Label>

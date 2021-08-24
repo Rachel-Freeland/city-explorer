@@ -2,7 +2,7 @@
 
 ## Netlify Badge and Link
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6977d6af-4889-474a-a114-b1bd276c789c/deploy-status)](https://app.netlify.com/sites/city-explorer-hijinx/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6977d6af-4889-474a-a114-b1bd276c789c/deploy-status)](<https://app.netlify.com/sites/city-explorer-hijinx/deploys>)
 
 [City Explorer](<https://city-explorer-hijinx.netlify.app/>)
 
@@ -28,6 +28,10 @@ This app is created with javaScript and React.js
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 On Monday August 23, 2021: Sarah Creager
+
+## Web Request Response Cycle
+
+- [Lab_6.png]('./Lab6.png')
 
 ## Time Estimates
 
