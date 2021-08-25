@@ -9,12 +9,44 @@ html {
 
 body div {
   background-color: rgb(182, 202, 223);
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   padding-bottom: 2rem;
 }
 
 #map {
   border: 0.5rem rgb(155, 89, 41) solid;
-  margin: auto;
+  margin-left: 15rem;
   padding-bottom: 0.75rem;
+}
+
+h2 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+#weatherFormat {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.25rem;
+  padding-left: 14rem;
+  padding-right: 14rem;
+  text-align: center;
+}
+
+#cityLatLon {
+  padding: 0rem 14rem;
+}
+
+.mb-3 {
+  padding: 0rem 14rem;
+}
+
+#formLabel {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#explore {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1.175rem;
 }
