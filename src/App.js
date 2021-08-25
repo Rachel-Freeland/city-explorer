@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Figure from 'react-bootstrap/Figure';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Weather from './Weather.js';
 import axios from 'axios';
 import './App.css';
 
@@ -19,7 +20,8 @@ class App extends React.Component {
       display_name: '',
       map: '',
       errorMessage: '',
-      showAlert: false
+      showAlert: false,
+      weather: []
     };
   }
 
@@ -46,6 +48,13 @@ class App extends React.Component {
       this.setState({
         map: mapResponse.config.url
       });
+
+      const weatherAPI = `http://localhost:3001/weather?searchQuery=${this.state.searchQuery}&lat={this.state.lat}&lon=${this.state.lon}`;
+      const weatherResponse = await axios.get(weatherAPI);
+      this.setState({
+        weather: weatherResponse.data
+      });
+      console.log(this.state.weather);
     } catch(err) {
       this.setState({
         errorMessage: err.message,
@@ -63,13 +72,13 @@ class App extends React.Component {
         </Alert>}
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail" onChange={this.handleChange}>
-          <Form.Label>City Search</Form.Label>
+          <Form.Label id="formLabel">City Search</Form.Label>
           <Form.Control type="textarea" placeholder="Enter a city" />
           <br />
-          <Button variant="primary" type="submit" onClick={this.handleClick}>Explore!</Button>
+          <Button id="explore" variant="primary" type="submit" onClick={this.handleClick}>Explore!</Button>
         </Form.Group>
         </Form>
-        <ListGroup>
+        <ListGroup id="cityLatLon">
           <ListGroup.Item>City: {this.state.display_name}</ListGroup.Item>
           <ListGroup.Item>Latitude: {this.state.lat}</ListGroup.Item>
           <ListGroup.Item>Longitude: {this.state.lon}</ListGroup.Item>
@@ -80,6 +89,8 @@ class App extends React.Component {
           <br />
           <Figure.Image src={this.state.map} alt="map" width={800} height={800} />
         </Figure>}
+        <br />
+        <Weather weather={this.state.weather} />
       </Container>
     );
   }
