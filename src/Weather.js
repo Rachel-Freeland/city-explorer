@@ -5,19 +5,22 @@ class Weather extends React.Component {
   render() {
     return(
       <>
-        <h2> 3-Day Forecast </h2>
+        <h2> 16-Day Forecast </h2>
         {this.props.weather.map( (day, i) => {
           return(
             <>
               <ListGroup id="weatherFormat" key={i}>
-                <ListGroup.Item>{day}</ListGroup.Item>
+                <ListGroup.Item id="listItem"><span>{day.date}:</span> {day.dailyForecast} </ListGroup.Item>
               </ListGroup>
             </>
-            );
+          );
         })}
       </>
-    )
-  };
+    );
+  }
 }
 
 export default Weather;
+
+
+

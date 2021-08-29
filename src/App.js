@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Figure from 'react-bootstrap/Figure';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
+import MovieCards from './MovieCards.js';
 import Weather from './Weather.js';
 import axios from 'axios';
 import './App.css';
@@ -21,11 +22,12 @@ class App extends React.Component {
       map: '',
       errorMessage: '',
       showAlert: false,
-      weather: []
+      weather: [],
+      movies: []
     };
   }
 
-  handleChange= (e) => {
+  handleChange = (e) => {
     e.preventDefault();
     this.setState({
       searchQuery: e.target.value
@@ -33,8 +35,8 @@ class App extends React.Component {
   }
 
   handleClick = async (e) => {
-      e.preventDefault();
-      try{
+    e.preventDefault();
+    try{
       const locationAPI = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API}&q=${this.state.searchQuery}&format=json`;
       const locationResponse = await axios.get(locationAPI);
       this.setState({
@@ -45,16 +47,17 @@ class App extends React.Component {
 
       const mapAPI =`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API}&lat=${this.state.lat}&lon=${this.state.lon}&center=${this.state.lat},${this.state.lon}&zoom=10&theme=streets`;
       const mapResponse = await axios.get(mapAPI);
-      this.setState({
-        map: mapResponse.config.url
-      });
+      this.setState({map: mapResponse.config.url});
 
-      const weatherAPI = `http://localhost:3001/weather?searchQuery=${this.state.searchQuery}&lat={this.state.lat}&lon=${this.state.lon}`;
+      const weatherAPI = `${process.env.REACT_APP_BACKEND}/weather?searchQuery=${this.state.searchQuery}&lat=${this.state.lat}&lon=${this.state.lon}`;
       const weatherResponse = await axios.get(weatherAPI);
-      this.setState({
-        weather: weatherResponse.data
-      });
-      console.log(this.state.weather);
+      this.setState({weather: weatherResponse.data});
+
+      const moviesAPI = `${process.env.REACT_APP_BACKEND}/movies?searchQuery=${this.state.searchQuery}`;
+      const moviesResponse = await axios.get(moviesAPI);
+      this.setState({movies: moviesResponse.data});
+      console.log(this.state.movies);
+
     } catch(err) {
       this.setState({
         errorMessage: err.message,
@@ -71,26 +74,30 @@ class App extends React.Component {
           Error: Unable to GeoCode!
         </Alert>}
         <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail" onChange={this.handleChange}>
-          <Form.Label id="formLabel">City Search</Form.Label>
-          <Form.Control type="textarea" placeholder="Enter a city" />
-          <br />
-          <Button id="explore" variant="primary" type="submit" onClick={this.handleClick}>Explore!</Button>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail" onChange={this.handleChange}>
+            <Form.Label id="formLabel">City Search</Form.Label>
+            <Form.Control type="textarea" placeholder="Enter a city" />
+            <br />
+            <Button id="explore" variant="primary" type="submit" onClick={this.handleClick}>Explore!</Button>
+          </Form.Group>
         </Form>
+        {this.state.lat &&
         <ListGroup id="cityLatLon">
           <ListGroup.Item>City: {this.state.display_name}</ListGroup.Item>
           <ListGroup.Item>Latitude: {this.state.lat}</ListGroup.Item>
           <ListGroup.Item>Longitude: {this.state.lon}</ListGroup.Item>
-        </ListGroup>
+        </ListGroup>}
         <br />
         {this.state.map &&
         <Figure id="map">
           <br />
-          <Figure.Image src={this.state.map} alt="map" width={800} height={800} />
+          <Figure.Image src={this.state.map} alt="map" width={800} height={825} />
         </Figure>}
         <br />
-        <Weather weather={this.state.weather} />
+        {this.state.weather &&
+        <Weather weather={this.state.weather} />}
+        {this.state.movies &&
+        <MovieCards city={this.state.searchQuery} movies={this.state.movies} />}
       </Container>
     );
   }

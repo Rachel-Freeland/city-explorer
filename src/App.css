@@ -1,35 +1,33 @@
-html {
+html body {
   padding: 1rem;
-  background-color: slategray;
+  background-color: rgb(112, 145, 179);
 }
 #alert {
   text-align: center;
   color: black;
 }
 
-body div {
-  background-color: rgb(182, 202, 223);
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+#contianer{
+  max-width: 100%;
 }
 
 #map {
-  border: 0.5rem rgb(155, 89, 41) solid;
-  margin-left: 15rem;
+  margin-left: 17rem;
   padding-bottom: 0.75rem;
 }
 
 h2 {
   font-family: 'Times New Roman', Times, serif;
+  padding-top: 2rem;
   text-align: center;
 }
 
 #weatherFormat {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.25rem;
-  padding-left: 14rem;
-  padding-right: 14rem;
-  text-align: center;
+  padding-left: 20rem;
+  padding-right: 20rem;
+
 }
 
 #cityLatLon {
@@ -42,11 +40,66 @@ h2 {
 
 #formLabel {
   font-family:'Times New Roman', Times, serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
 }
 
 #explore {
   font-family:Arial, Helvetica, sans-serif;
   font-size: 1.175rem;
+}
+
+#listItem {
+  background-color: rgb(212, 227, 248);
+  margin: 0.25rem;
+}
+
+#listItem>span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+span {
+  font-weight: 700;
+}
+
+#movieCard {
+  background-color: rgba(233, 207, 236, 0.801);
+  border: 1rem navy inset;
+  float: left;
+  margin: 0.75rem;
+  height: 60rem;
+}
+
+#movieHeader {
+  background-color: rgb(167, 166, 186);
+  font-size: 1.2rem;
+  height: 9.5rem;
+  overflow: scroll;
+  text-align: center;
+  text-shadow: 1px 1px lightgray;
+}
+
+#movieHeader>p>span {
+  font-size: 1.7rem;
+}
+
+#movieImg {
+  height: 26rem;
+  margin: 0.25rem auto;
+  padding: 0.25rem;
+  max-width: 98%;
+  width: 25rem;
+}
+
+#movieBody {
+  font-weight: 500;
+  height: 12rem;
+  overflow: scroll;
+}
+
+#movieFooter {
+  background-color: rgb(167, 166, 186);
+  height: 8rem;
+  text-align: center;
 }
