@@ -18,7 +18,7 @@ class MovieCards extends React.Component {
                   <Card.Img id="movieImg" variant="top" src={obj.imgUrl} alt={obj.title} />
                   <Card.Body id="movieBody">
                     <p><span>Released:</span> {obj.release_date}</p>
-                    <p><span>Storyline:</span> {obj.overview}</p> 
+                    <p><span>Storyline:</span> {obj.overview}</p>
                   </Card.Body>
                   <Card.Footer id="movieFooter">
                     <p><span>Popularity:</span> {obj.popularity}</p>
