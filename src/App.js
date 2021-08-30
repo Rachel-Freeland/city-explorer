@@ -95,7 +95,7 @@ class App extends React.Component {
         </Figure>}
         <br />
         {this.state.weather &&
-        <Weather weather={this.state.weather} />}
+        <Weather weather={this.state.weather} city={this.state.searchQuery} />}
         {this.state.movies &&
         <MovieCards city={this.state.searchQuery} movies={this.state.movies} />}
       </Container>
