@@ -5,7 +5,7 @@ class Weather extends React.Component {
   render() {
     return(
       <>
-        <h2> 16-Day Forecast </h2>
+        <h2> 16-Day Forecast for <span>{this.props.city}</span> </h2>
         {this.props.weather.map( (day, i) => {
           return(
             <>
@@ -21,6 +21,3 @@ class Weather extends React.Component {
 }
 
 export default Weather;
-
-
-
