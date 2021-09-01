@@ -6,10 +6,10 @@ class Weather extends React.Component {
     return(
       <>
         <h2> 16-Day Forecast for <span>{this.props.city}</span> </h2>
-        {this.props.weather.map( (day, i) => {
+        {this.props.weather.map( (day, id) => {
           return(
             <>
-              <ListGroup id="weatherFormat" key={i}>
+              <ListGroup id="weatherFormat" key={id}>
                 <ListGroup.Item id="listItem"><span>{day.date}:</span> {day.dailyForecast} </ListGroup.Item>
               </ListGroup>
             </>
