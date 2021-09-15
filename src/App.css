@@ -1,10 +1,10 @@
 html body {
-  padding: 1rem;
   background-color: rgb(112, 145, 179);
+  padding: 1rem;
 }
 #alert {
-  text-align: center;
   color: black;
+  text-align: center;
 }
 
 #contianer{
@@ -49,14 +49,22 @@ h2 {
   font-size: 1.175rem;
 }
 
-#listItem {
-  background-color: rgb(212, 227, 248);
-  margin: 0.25rem;
+#card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
 }
 
-#listItem>span {
+#cardBody {
+  background-color: rgb(212, 227, 248);
+  font-weight: 500;
+  text-align: center;
+}
+
+#cardTitle {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
+  text-align: center;
 }
 
 span {
@@ -67,8 +75,8 @@ span {
   background-color: rgba(233, 207, 236, 0.801);
   border: 1rem navy inset;
   float: left;
-  margin: 0.75rem;
   height: 60rem;
+  margin: 0.75rem;
 }
 
 #movieHeader {
@@ -86,20 +94,22 @@ span {
 
 #movieImg {
   height: 26rem;
-  margin: 0.25rem auto;
-  padding: 0.25rem;
-  max-width: 98%;
+  margin: 0.3rem auto;
   width: 25rem;
 }
 
 #movieBody {
   font-weight: 500;
-  height: 12rem;
+  height: 14rem;
   overflow: scroll;
 }
 
 #movieFooter {
   background-color: rgb(167, 166, 186);
-  height: 8rem;
+  height: 7rem;
   text-align: center;
+}
+
+#movieFooter>p {
+  margin: 0rem;
 }
