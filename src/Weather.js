@@ -9,7 +9,7 @@ class Weather extends React.Component {
         {this.props.weather.map( (day, id) => {
           return(
             <>
-              <WeatherDay id="weatherFormat" key={id} date={day.date} forecast={day.dailyForecast} />              
+              <WeatherDay id="weatherFormat" key={id} date={day.date} forecast={day.dailyForecast} />
             </>
           );
         })}
